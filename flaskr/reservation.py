@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 from os.path import exists
+import datetime
 
 __location__ = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__)))
@@ -12,12 +13,14 @@ else:
     print(dir_list)
     reservations = {
         "NAME": [],
+        "CITY": [],
+        "CONTACT_NUMBER": [],
+        "E-MAIL": [],
         "PAY_CONFIRMATION": [],
         "PAY_DATE": [],
         "RESERVATION_START": [],
         "RESERVATION_END": [],
-        "NUMBER_OF_PEOPLE": [],
-        "CLEANING": []
+        "NUMBER_OF_PEOPLE": []
     }
     with open(f'{__location__}/reservations.csv', "w") as fp:
         pass
@@ -28,16 +31,20 @@ else:
     print("Successful csv Creation")
 
 
-def addreservation(name, confirmation, paydate, reservation_start, reservation_end, number_of_people, cleaning=False):
+def add_reservation(name, city, contact_number, e_mail, confirmation, paydate, reservation_start, reservation_end,
+                   number_of_people):
     reservation_data = {
         "NAME": [name],
+        "CITY": [city],
+        "CONTACT_NUMBER": [contact_number],
+        "E-MAIL": [e_mail],
         "PAY_CONFIRMATION": [confirmation],
         "PAY_DATE": [paydate],
         "RESERVATION_START": [reservation_start],
         "RESERVATION_END": [reservation_end],
-        "NUMBER_OF_PEOPLE": [number_of_people],
-        "CLEANING": [cleaning]
+        "NUMBER_OF_PEOPLE": [number_of_people]
     }
     reservation = pd.DataFrame(reservation_data)
     pd.concat([reservations, reservation])
     reservation.to_csv(f'{__location__}/reservations.csv')
+
