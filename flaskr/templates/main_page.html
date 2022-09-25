@@ -1,20 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" href="/Logo_transparente.png" type="image/png">
-    <link rel="stylesheet" href='/static/main.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static/Logo_transparente.png" type="image/png">
+    <link rel="stylesheet" href='/static/main.css'/>
     <title>Casa de Playa Loto</title>
-    <link rel="shortcut icon" href="/Logo_Transparente.png">
 </head>
 <body>
+    <nav class="navbar">
+        <div>
+            <a href="#">
+                <img class="Logo" src="/static/Logo_Transparente.png">
+            </a>
+        </div>
+        <ul class="nav_list" id="navi-list">
+            <li>
+                <a>
+                Noticias
+                </a>
+            </li>
 
-    <ul>
-        <li><a href="main_page.html">Pagina Principal</a></li>
-        <li><a href="news.asp">Noticias</a></li>
-        <li><a href="contact.asp">Contacto</a></li>
-        <li><a href="about.asp">Reservas</a></li>
-    </ul>
+            <li>
+                <a>
+                Contacto
+                </a>
+            </li>
 
+            <li>
+                <a>
+                Reservas
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="menu" id="toggle-button">
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+    </div>
 </body>
+<script>
+    const toggleButton = document.getElementById("toggle-button");
+    const navlist =document.getElementById("navi-list");
+
+    toggleButton.addEventListener("click",() => {
+        navlist.classList.toggle("active");
+    })
+</script>
 </html>

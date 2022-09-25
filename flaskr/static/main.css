@@ -1,15 +1,90 @@
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+@font-face {
+  font-family: test_font;
+  src: url(GreatVibes-Regular.ttf);
 }
-li {
-    display: inline;
-    float: left;
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
+.navbar{
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "test_font";
+    font-size: 35px;
+}
+.nav_list {
+    float:left;
+    list-style-type: none;
+}
+.nav_list li{
+    float:left;
+    display: inline-block;
+    padding: 20px 10px;
+}
+.navbar a{
+    color: white;
+    text-decoration: none;
+}
+.navbar a:hover{
+    color:#6dbbc7;
+}
+.Logo{
+    height:200px;
+}
+.menu{
+    display: none;
+}
+.menu-line{
+    width: 20px;
+    height: 3px;
+    background-color: white;
+    margin-bottom: 4px;
+}
+@media all and (max-width: 480px) {
+    .navbar{
+        flex-direction: column;
+        position: relative;
+    }
+    .menu {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+    }
+    .nav_list {
+        list-style-type: none;
+        width:100%;
+        text-align: center;
+        padding-top: 10px;
+        display: none;
+    }
+    .nav_list li{
+        display: block;
+        padding: 10px;
+        border-top:1px solid white;
+    }
+    .navbar a{
+        color: white;
+        text-decoration: none;
+    }
+    .navbar a:hover{
+        color:#6dbbc7;
+    }
+    .Logo{
+        height:200px;
+    }
+    .menu-line{
+        width: 20px;
+        height: 3px;
+        background-color: white;
+        margin-bottom: 4px;
+    }
+    .active{
+        display: contents;
+    }
 
-a {
-  display: block;
-  padding: 8px;
-  background-color: #dddddd;
 }
