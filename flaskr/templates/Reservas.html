@@ -38,6 +38,32 @@
         <div class="menu-line"></div>
         <div class="menu-line"></div>
     </div>
+  <form id="bookForm" onsubmit="return book();">
+
+    <label id="name">Nombre</label>
+    <input type="text" name="name" required/>
+
+    <label id="ciudad">Ciudad</label>
+    <input type="text" name="ciudad" required/>
+
+    <label id="Telefono">Telefono</label>
+    <input type="number" name="Telefono" required/>
+
+    <label id="email">Email</label>
+    <input type="email" name="email" required/>
+
+    <label id="start_date">Desde</label>
+    <input type="date" name="start_date" required/>
+
+    <label id="end_date">Hasta</label>
+    <input type="date" name="end_date" required/>
+
+    <label id="number">Numero de Personas</label>
+    <input type="number" name="number" required/>
+
+    <input type="submit" value="Go!" id="bookGo"/>
+  </form>
 </body>
-<script src = "/static/index.js"></script>
+<script src="/static/index.js"></script>
+<script src="/static/reservation.js"></script>
 </html>

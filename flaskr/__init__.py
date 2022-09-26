@@ -1,7 +1,14 @@
 import os
 import flask
 from flask import Flask
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import reservation
+from collections import defaultdict
 
+MAIL_FROM = "sys@site.com"
+MAIL_TO = "admin@site.com"
+MAIL_SUBJECT = "Gracias por reservar con nosotros!"
 
 def create_app(test_config=None):
     # create and configure the app
@@ -32,6 +39,16 @@ def create_app(test_config=None):
     @app.route('/')
     def index():
         return flask.render_template('main_page.html')
+
+    @app.route('/Reservas')
+    def res():
+        return flask.render_template('reservas.html')
+    @app.route("/Reservas",methods=["POST"])
+    def book():
+        resv_data = dict(flask.request.form)
+        print(resv_data)
+        reservation.add_reservation(resv_data['name'],resv_data['ciudad'],resv_data['Telefono'],resv_data['email'],0,0,resv_data['start_date'],resv_data['end_date'],resv_data['number'])
+
     return app
 app = create_app()
 if __name__ == '__main__':

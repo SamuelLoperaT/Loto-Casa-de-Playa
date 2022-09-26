@@ -45,6 +45,7 @@ def add_reservation(name, city, contact_number, e_mail, confirmation, paydate, r
         "NUMBER_OF_PEOPLE": [number_of_people]
     }
     reservation = pd.DataFrame(reservation_data)
-    pd.concat([reservations, reservation])
+    reservations.append(reservation)
     reservation.to_csv(f'{__location__}/reservations.csv')
+    return 0
 
